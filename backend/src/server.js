@@ -17,7 +17,7 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin:"https://friends-app-chi.vercel.app" && "http://localhost:5173",
     credentials: true,
   })
 );
