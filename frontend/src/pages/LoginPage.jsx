@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { GlobeLockIcon } from "lucide-react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import useLogin from "../hooks/useLogin";
 
 const LoginPage = () => {
@@ -26,7 +26,7 @@ const LoginPage = () => {
         <div className="w-full lg:w-1/2 p-4 sm:p-8 flex flex-col">
           {/* LOGO */}
           <div className="mb-4 flex items-center justify-start gap-2">
-            <GlobeLockIcon className="size-9 text-primary"/>
+            <GlobeLockIcon className="size-9 text-primary" />
             <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
               Friends
             </span>
@@ -51,34 +51,44 @@ const LoginPage = () => {
 
                 <div className="flex flex-col gap-3">
                   <div className="form-control w-full space-y-2">
-                    <label className="label">
+                    <label htmlFor="email" className="label">
                       <span className="label-text">Email</span>
                     </label>
                     <input
+                      id="email"
                       type="email"
                       placeholder="hello@example.com"
                       className="input input-bordered w-full"
                       value={loginData.email}
-                      onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
+                      onChange={(e) =>
+                        setLoginData({ ...loginData, email: e.target.value })
+                      }
                       required
                     />
                   </div>
 
                   <div className="form-control w-full space-y-2">
-                    <label className="label">
+                    <label htmlFor="password" className="label">
                       <span className="label-text">Password</span>
                     </label>
                     <input
+                      id="password"
                       type="password"
                       placeholder="••••••••"
                       className="input input-bordered w-full"
                       value={loginData.password}
-                      onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+                      onChange={(e) =>
+                        setLoginData({ ...loginData, password: e.target.value })
+                      }
                       required
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary w-full" disabled={isPending}>
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-full"
+                    disabled={isPending}
+                  >
                     {isPending ? (
                       <>
                         <span className="loading loading-spinner loading-xs"></span>
@@ -92,7 +102,10 @@ const LoginPage = () => {
                   <div className="text-center mt-4">
                     <p className="text-sm">
                       Don't have an account?{" "}
-                      <Link to="/signup" className="text-primary hover:underline">
+                      <Link
+                        to="/signup"
+                        className="text-primary hover:underline"
+                      >
                         Create one
                       </Link>
                     </p>
@@ -108,13 +121,20 @@ const LoginPage = () => {
           <div className="max-w-md p-8">
             {/* Illustration */}
             <div className="relative aspect-square max-w-sm mx-auto">
-              <img src="/i.png" alt="Language connection illustration" className="w-full h-full" />
+              <img
+                src="/i.png"
+                alt="Language connection illustration"
+                className="w-full h-full"
+              />
             </div>
 
             <div className="text-center space-y-3 mt-6">
-              <h2 className="text-xl font-semibold">Connect with language partners worldwide</h2>
+              <h2 className="text-xl font-semibold">
+                Connect with language partners worldwide
+              </h2>
               <p className="opacity-70">
-                Practice conversations, make friends, and improve your language skills together
+                Practice conversations, make friends, and improve your language
+                skills together
               </p>
             </div>
           </div>
